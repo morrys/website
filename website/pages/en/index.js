@@ -13,45 +13,15 @@ const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
-const SplashContainer = props => (
-  <div className="homeContainer">
-    <div className="homeSplashFade">
-      <div className="wrapper homeWrapper">{props.children}</div>
-    </div>
-  </div>
-);
-
-
-
-const PromoSection = props => (
-  <div className="section promoSection">
-    <div className="promoRow">
-      <h4 className="projectTitle">
-        <small>{props.title}</small>
-      </h4>
-      <div className="pluginRowBlock">{props.children}</div>
-    </div>
-  </div>
-);
-
-const Button = props => (
-  <div className="pluginWrapper buttonWrapper">
-    <a className="button" href={props.href} target={props.target}>
-      {props.children}
-    </a>
-  </div>
-);
 
 class HomeSplash extends React.Component {
   render() {
     const { siteConfig, language = '' } = this.props;
-    const { baseUrl, docsUrl, woraUrl } = siteConfig;
+    const { baseUrl, docsUrl, repos } = siteConfig;
     const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
     const langPart = `${language ? `${language}/` : ''}`;
-    const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
-    const woraDoc = doc => `${woraUrl}${docsPart}${langPart}${doc}`;
 
-    
+
 
     const Logo = props => (
       <div className="projectLogo">
@@ -66,25 +36,77 @@ class HomeSplash extends React.Component {
       </h2>
     );
 
+
+    const SplashContainer = props => (
+      <div className="homeContainer">
+        <div className="homeSplashFade">
+          <div className="wrapper homeWrapper">{props.children}</div>
+        </div>
+      </div>
+    );
+
+
+
+
+    const ButtonLibrary = props => (
+      <div className="pluginWrapper buttonWrapper">
+        <a className="library button" href={props.href} target={props.target}>
+          {props.children}
+        </a>
+      </div>
+    );
+
+
+    const RepoTitle = ({ repo }) => (
+      <h2 className="projectTitle">
+        <React.Fragment><small><a href={repo.url} >GitHub {repo.title}</a>
+          <a
+            className="github-button"
+            href={repo.url}
+            data-icon="octicon-star"
+            data-count-href={repo.url + 'stargazers'}
+            data-show-count="true"
+            data-count-aria-label="# stargazers on GitHub"
+            aria-label="Star this project on GitHub">
+            Star
+          </a></small>
+        </React.Fragment>
+      </h2>
+    );
+
+    const Categoria = ({ repo, cat }) => {
+      const libraries = cat.libraries.map(lib => <ButtonLibrary href={repo.docs + lib.html}>{lib.npm}</ButtonLibrary> )
+      return (<div className="section categoriaSection">
+        <div className="categoriaRow">
+          <h4 className="categoriaTitle">
+            <small>{cat.title}</small>
+          </h4>
+          <div className="pluginRowBlock libreriesContainer">{libraries}</div>
+        </div>
+      </div>
+      )
+    };
+
+    const Repository = ({ repo }) => {
+      const categorie = repo.categories.map(cat => <Categoria repo={repo} cat={cat} />)
+      return (
+        <div className="repositoryContainer">
+          <RepoTitle repo={repo} />
+          <div className="categories">
+            {categorie}
+          </div>
+        </div>
+      )
+    };
+
+    const reposGit = Object.keys(repos).map(key => <Repository repo={repos[key]} />);
+
     // <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} />
     return (
       <SplashContainer>
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
-          <PromoSection title="Caching">
-            <Button href={woraDoc('cache-persist.html')}>Cache Persist</Button>
-            <Button href={woraDoc('apollo-cache.html')}>Apollo Cache</Button>
-            <Button href={woraDoc('relay-store.html')}>Relay Store</Button>
-          </PromoSection>
-          <PromoSection title="Networking">
-            <Button href={woraDoc('netinfo.html')}>NetInfo</Button>
-            <Button href={woraDoc('detect-network.html')}>Detect Network</Button>
-          </PromoSection>
-          <PromoSection title="Offline">
-            <Button href={woraDoc('offline-first.html')}>Offline First</Button>
-            <Button href={woraDoc('apollo-offline.html')}>Apollo Offline</Button>
-            <Button href={woraDoc('relay-offline.html')}>Relay Offline</Button>
-          </PromoSection>
+          {reposGit}
         </div>
       </SplashContainer>
     );
@@ -109,86 +131,7 @@ class Index extends React.Component {
       </Container>
     );
 
-    const OtherRepositories = () => (
-      <div
-        className="productShowcaseSection paddingBottom"
-        style={{ textAlign: 'center' }}>
-        <h2>Other Repositories</h2>
-        <SplashContainer>
-          <div className="inner">
-            <PromoSection>
-              <Button href="https://github.com/morrys/react-relay-offline">React Relay Offline</Button>
-              <Button href="https://github.com/morrys/react-relay-appsync">React Relay Appsync</Button>
-              <Button href="https://github.com/relay-tools/relay-hooks">Relay Hooks</Button>
-              <Button href="https://github.com/morrys/offline-examples">Offline Examples</Button>
-            </PromoSection>
-          </div>
-        </SplashContainer>
-      </div>
-    );
-
-    const TryOut = () => (
-      <Block id="try">
-        {[
-          {
-            content:
-              'To make your landing page more attractive, use illustrations! Check out ' +
-              '[**unDraw**](https://undraw.co/) which provides you with customizable illustrations which are free to use. ' +
-              'The illustrations you see on this page are from unDraw.',
-            image: `${baseUrl}img/undraw_code_review.svg`,
-            imageAlign: 'left',
-            title: 'Wonderful SVG Illustrations',
-          },
-        ]}
-      </Block>
-    );
-
-    const Description = () => (
-      <Block background="dark">
-        {[
-          {
-            content:
-              'This is another description of how this project is useful',
-            image: `${baseUrl}img/undraw_note_list.svg`,
-            imageAlign: 'right',
-            title: 'Description',
-          },
-        ]}
-      </Block>
-    );
-
-    const LearnHow = () => (
-      <Block background="light">
-        {[
-          {
-            content:
-              'Each new Docusaurus project has **randomly-generated** theme colors.',
-            image: `${baseUrl}img/undraw_youtube_tutorial.svg`,
-            imageAlign: 'right',
-            title: 'Randomly Generated Theme Colors',
-          },
-        ]}
-      </Block>
-    );
-
-    const Features = () => (
-      <Block layout="fourColumn">
-        {[
-          {
-            content: 'This is the content of my feature',
-            image: `${baseUrl}img/undraw_react.svg`,
-            imageAlign: 'top',
-            title: 'Feature One',
-          },
-          {
-            content: 'The content of my second feature',
-            image: `${baseUrl}img/undraw_operating_system.svg`,
-            imageAlign: 'top',
-            title: 'Feature Two',
-          },
-        ]}
-      </Block>
-    );
+    
 
     const Showcase = () => {
       if ((siteConfig.users || []).length === 0) {
@@ -218,19 +161,11 @@ class Index extends React.Component {
         </div>
       );
     };
-    /*
-          <Features />
-          <FeatureCallout />
-          <LearnHow />
-          <TryOut />
-          <Description />
-    */
 
     return (
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
-          <OtherRepositories />
           <Showcase />
         </div>
       </div>

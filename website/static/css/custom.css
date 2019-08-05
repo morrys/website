@@ -1,5 +1,56 @@
 /* your custom css */
 
+.repositoryContainer {
+
+}
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+}
+
+.categoriaSection {
+    display: flex;
+    flex-flow: column wrap;
+    font-size: 125%;
+    line-height: 1.6em;
+    position: relative;
+    z-index: 99;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 400px;
+    min-width: 200px;
+    margin: 0 5px 5px 5px;
+}
+
+.categoriaRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.categoriaTitle {
+    margin: 0;
+    line-height: 1em;
+    color: white;
+    background-color: #008ed8;
+    padding: 5px;
+}
+
+.libreriesContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.library {
+    width: 100%;
+    border-radius: 0;
+}
+
+@media only screen and (min-width: 480px) {
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 

@@ -5,16 +5,8 @@
     "previous": "Previous",
     "tagline": "Collection of libraries usable for the web, react and react-native.",
     "docs": {},
-    "links": {
-      "Docs wora": "Docs wora",
-      "GitHub": "GitHub"
-    },
-    "categories": {
-      "wora": "wora",
-      "caching": "caching",
-      "networking": "networking",
-      "offline": "offline"
-    }
+    "links": {},
+    "categories": {}
   },
   "pages-strings": {
     "Help Translate|recruit community translators for your project": "Help Translate",

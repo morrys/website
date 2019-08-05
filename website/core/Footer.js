@@ -22,6 +22,7 @@ class Footer extends React.Component {
   }
 
   render() {
+
     return (
       <footer className="nav-footer" id="footer">
         <section className="sitemap">
@@ -49,17 +50,6 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>More</h5>
-            <a href="https://github.com/morrys/wora">GitHub wora</a>
-            <a
-              className="github-button"
-              href={this.props.config.woraUrl}
-              data-icon="octicon-star"
-              data-count-href={this.props.config.woraUrl+ 'stargazers'}
-              data-show-count="true"
-              data-count-aria-label="# stargazers on GitHub"
-              aria-label="Star this project on GitHub">
-              Star wora
-            </a>
             {this.props.config.twitterUsername && (
               <div className="social">
                 <a
