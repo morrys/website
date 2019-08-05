@@ -81,10 +81,6 @@ repos['react-relay-appsync'] = {
           html: 'react-relay-auth-iam.html',
           npm: 'react-relay-auth-iam'
         },
-        {
-          html: 'relay-store.html',
-          npm: '@wora/relay-store'
-        },
       ]
     }],
 };
