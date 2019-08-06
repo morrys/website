@@ -12,10 +12,75 @@ const users = [
 
 const repos = {};
 
+repos['relay-hooks'] = {
+  title: 'relay-hooks',
+  description: 'Use Relay as React hooks',
+  url: 'https://github.com/relay-tools/relay-hooks/',
+  baseDocs: 'https://relay-tools.github.io/relay-hooks/docs/',
+  docs: 'https://relay-tools.github.io/relay-hooks/docs/relay-hooks.html',
+  categories: [
+    {
+      title: 'Relay',
+      libraries: [
+        {
+          html: 'relay-hooks.html',
+          npm: 'relay-hooks'
+      }]
+    }],
+};
+
+repos['react-relay-offline'] = {
+  title: 'react-relay-offline',
+  description: 'TypeScript library files for Relay Modern Offline',
+  url: 'https://github.com/morrys/react-relay-offline/',
+  baseDocs: 'https://morrys.github.io/react-relay-offline/docs/',
+  docs: 'https://morrys.github.io/react-relay-offline/docs/react-relay-offline.html',
+  categories: [
+    {
+      title: 'Relay',
+      libraries: [
+        {
+          html: 'react-relay-offline.html',
+          npm: 'react-relay-offline'
+      }]
+    }],
+};
+
+repos['offline-examples'] = {
+  title: 'offline-examples',
+  description: 'Relay (web & react-native) and Apollo (web) Offline Examples',
+  url: 'https://github.com/morrys/offline-examples/',
+  categories: [],
+};
+
+repos['react-relay-appsync'] = {
+  title: 'react-relay-appsync',
+  description: 'AppSync for Relay',
+  url: 'https://github.com/morrys/react-relay-appsync/',
+  baseDocs: 'https://morrys.github.io/react-relay-appsync/docs/',
+  docs: 'https://morrys.github.io/react-relay-appsync/docs/react-relay-appsync',
+  categories: [
+    {
+      title: 'AWS',
+      libraries: [
+        {
+          html: 'react-relay-upload-s3.html',
+          npm: 'react-relay-upload-s3'
+        },
+        {
+          html: 'react-relay-auth-iam.html',
+          npm: 'react-relay-auth-iam'
+        },
+      ]
+    }],
+};
+
 repos['wora'] = {
   title: 'wora',
+  description: 'TypeScript libraries: Write Once, Render Anywhere',
   url: 'https://github.com/morrys/wora/',
-  docs: 'https://morrys.github.io/wora/docs/',
+  baseDocs: 'https://morrys.github.io/wora/docs/',
+  docs: 'https://morrys.github.io/wora/docs/introduction',
   categories: [
     {
       title: 'Caching',
@@ -65,55 +130,11 @@ repos['wora'] = {
     }],
 };
 
-repos['react-relay-appsync'] = {
-  title: 'react-relay-appsync',
-  url: 'https://github.com/morrys/react-relay-appsync/',
-  docs: 'https://morrys.github.io/react-relay-appsync/docs/',
-  categories: [
-    {
-      title: 'React Relay AWS Appsync',
-      libraries: [
-        {
-          html: 'react-relay-upload-s3.html',
-          npm: 'react-relay-upload-s3'
-        },
-        {
-          html: 'react-relay-auth-iam.html',
-          npm: 'react-relay-auth-iam'
-        },
-      ]
-    }],
-};
 
-repos['react-relay-offline'] = {
-  title: 'react-relay-offline',
-  url: 'https://github.com/morrys/react-relay-offline/',
-  docs: 'https://morrys.github.io/react-relay-offline/docs/',
-  categories: [
-    {
-      title: 'Relay',
-      libraries: [
-        {
-          html: 'react-relay-offline.html',
-          npm: 'react-relay-offline'
-      }]
-    }],
-};
 
-repos['relay-hooks'] = {
-  title: 'relay-hooks',
-  url: 'https://github.com/relay-tools/relay-hooks/',
-  docs: 'https://relay-tools.github.io/relay-hooks/docs/',
-  categories: [
-    {
-      title: 'Relay',
-      libraries: [
-        {
-          html: 'relay-hooks.html',
-          npm: 'relay-hooks'
-      }]
-    }],
-};
+
+
+
 
 /*
 const headerLinks = Object.keys(repos).map(key => ({ href: repos[key].docs + 'introduction', label: 'Docs ' + repos[key].title }));
@@ -125,8 +146,8 @@ headerLinks.push({ languages: false });
 */
 
 const siteConfig = {
-  title: 'Morrys Website',
-  tagline: 'Collection of libraries usable for the web, react and react-native.',
+  title: 'Morrys Repositories',
+  // tagline: 'Collection of libraries usable for the web, react and react-native.',
   url: 'https://morrys.github.io',
   baseUrl: '/website/',
   projectName: 'website',

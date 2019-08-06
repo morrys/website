@@ -14,10 +14,11 @@ const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
 
+
 class HomeSplash extends React.Component {
   render() {
     const { siteConfig, language = '' } = this.props;
-    const { baseUrl, docsUrl, repos } = siteConfig;
+    const { baseUrl, docsUrl, repos, projectName, organizationName } = siteConfig;
     const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
     const langPart = `${language ? `${language}/` : ''}`;
 
@@ -56,26 +57,48 @@ class HomeSplash extends React.Component {
       </div>
     );
 
+    const Button = props => (
+      <div className="stars">
+        {props.children}
+      </div>
+    );
+
+    const ButtonDocs = props => (
+      <div className="stars">
+        <a className="library button buttonDocs" href={props.href} target={props.target}>
+        {props.children}
+        </a>
+      </div>
+    );
 
     const RepoTitle = ({ repo }) => (
-      <h2 className="projectTitle">
-        <React.Fragment><small><a href={repo.url} >GitHub {repo.title}</a>
-          <a
+      <div className="repoContainer">
+        <React.Fragment><div className="divRepoTitle"><h3 className="repoTitle" >{repo.title}</h3></div>
+          {repo.docs && <ButtonDocs href={repo.docs}>Docs</ButtonDocs>}
+          <Button><a
+            className="github-button"
+            href={repo.url}
+            data-icon="mark-github"
+            data-size="large"
+            aria-label="Go to GitHub">
+          </a></Button>
+          <Button><a
             className="github-button"
             href={repo.url}
             data-icon="octicon-star"
             data-count-href={repo.url + 'stargazers'}
             data-show-count="true"
+            data-size="large"
             data-count-aria-label="# stargazers on GitHub"
             aria-label="Star this project on GitHub">
-            Star
-          </a></small>
+          </a></Button>
+
         </React.Fragment>
-      </h2>
+      </div>
     );
 
     const Categoria = ({ repo, cat }) => {
-      const libraries = cat.libraries.map(lib => <ButtonLibrary href={repo.docs + lib.html}>{lib.npm}</ButtonLibrary> )
+      const libraries = cat.libraries.map(lib => <ButtonLibrary href={repo.baseDocs + lib.html}>{lib.npm}</ButtonLibrary>)
       return (<div className="section categoriaSection">
         <div className="categoriaRow">
           <h4 className="categoriaTitle">
@@ -92,6 +115,7 @@ class HomeSplash extends React.Component {
       return (
         <div className="repositoryContainer">
           <RepoTitle repo={repo} />
+          <p className="repositoryDescription">{repo.description}</p>
           <div className="categories">
             {categorie}
           </div>
@@ -104,9 +128,11 @@ class HomeSplash extends React.Component {
     // <Logo img_src={`${baseUrl}img/undraw_monitor.svg`} />
     return (
       <SplashContainer>
-        <div className="inner">
+        <div className="inner customInner">
           <ProjectTitle siteConfig={siteConfig} />
-          {reposGit}
+          <div className="repositoriesContainer">
+            {reposGit}
+          </div>
         </div>
       </SplashContainer>
     );
@@ -131,7 +157,7 @@ class Index extends React.Component {
       </Container>
     );
 
-    
+
 
     const Showcase = () => {
       if ((siteConfig.users || []).length === 0) {
