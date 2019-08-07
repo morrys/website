@@ -1,5 +1,26 @@
 /* your custom css */
 
+.websiteContainer {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: white;
+    max-width: 935px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto 48px;
+}
+
+.websiteSplash {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.repoAction {
+    display: flex;
+}
+
 .repositoriesContainer{
     /* -webkit-box-flex: 1; */
 /* flex-grow: 1; */
@@ -17,10 +38,10 @@ flex-wrap: wrap;
 }
 .repositoryContainer {
 box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
-max-width: 380px;
+max-width: 300px;
 /* flex-grow: 1; */
 /* flex-basis: 0; */
-min-width: 380px;
+min-width: 300px;
 margin: 20px;
 
 }
@@ -93,6 +114,7 @@ margin: 20px;
     justify-items: center;
     align-items: center;
     text-align: left;
+    flex-direction: column;
 }
 
 .divRepoTitle {
@@ -155,7 +177,11 @@ margin: 20px;
     z-index: 100;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (max-width: 480px) {
+    .repositoryContainer {
+        margin: 0;
+        margin-bottom: 20px;
+    }
 }
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {

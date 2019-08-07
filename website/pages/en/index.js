@@ -39,8 +39,8 @@ class HomeSplash extends React.Component {
 
 
     const SplashContainer = props => (
-      <div className="homeContainer">
-        <div className="homeSplashFade">
+      <div className="homeContainer websiteContainer">
+        <div className="homeSplashFade websiteSplash">
           <div className="wrapper homeWrapper">{props.children}</div>
         </div>
       </div>
@@ -74,6 +74,7 @@ class HomeSplash extends React.Component {
     const RepoTitle = ({ repo }) => (
       <div className="repoContainer">
         <React.Fragment><div className="divRepoTitle"><h3 className="repoTitle" >{repo.title}</h3></div>
+        <div className="repoAction">
           {repo.docs && <ButtonDocs href={repo.docs}>Docs</ButtonDocs>}
           <Button><a
             className="github-button"
@@ -92,7 +93,7 @@ class HomeSplash extends React.Component {
             data-count-aria-label="# stargazers on GitHub"
             aria-label="Star this project on GitHub">
           </a></Button>
-
+          </div>
         </React.Fragment>
       </div>
     );
