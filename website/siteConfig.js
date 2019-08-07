@@ -147,7 +147,7 @@ headerLinks.push({ languages: false });
 
 const siteConfig = {
   title: 'Morrys Repositories',
-  // tagline: 'Collection of libraries usable for the web, react and react-native.',
+  tagline: 'Collection of libraries usable for the web, react and react-native.',
   url: 'https://morrys.github.io',
   baseUrl: '/website/',
   projectName: 'website',
