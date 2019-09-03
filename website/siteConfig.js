@@ -213,6 +213,7 @@ const siteConfig = {
   twitterImage: 'img/favicon.ico',
   twitterUsername: "m0rrys",
   repos,
+  gaTrackingId: "UA-146953551-1",
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
