@@ -165,6 +165,12 @@ const siteConfig = {
     secondaryColor: '#17afff',
   },
 
+  algolia: {
+    apiKey: '87a72e28932891cac536490e275e834e',
+    indexName: 'morrys',
+    placeholder: 'Search'
+  },
+
   /* Custom fonts for website */
   /*
   fonts: {
@@ -207,13 +213,6 @@ const siteConfig = {
   twitterImage: 'img/favicon.ico',
   twitterUsername: "m0rrys",
   repos,
-
-  woraUrl: 'https://morrys.github.io/wora/',
-  woraDocs: 'https://morrys.github.io/wora/docs/',
-  appsyncUrl: 'https://morrys.github.io/react-relay-appsync/',
-  appsyncDocs: 'https://morrys.github.io/wora/docs/',
-  woraUrl: 'https://morrys.github.io/wora/',
-  woraDocs: 'https://morrys.github.io/wora/docs/'
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
