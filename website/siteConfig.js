@@ -172,7 +172,8 @@ repos["woracache"] = {
 
 repos["offline-examples"] = {
   title: "offline-examples",
-  description: "Relay (web & react-native) and Apollo (web) Offline Examples",
+  description:
+    "Relay (web & react-native) and Apollo (web & react-native) Offline Examples",
   url: "https://github.com/morrys/offline-examples/",
   categories: [],
 };
