@@ -1,12 +1,4 @@
 const users = [
-  {
-    caption: "Memorang",
-    // You will need to prepend the image path with your baseUrl
-    // if it is not '/', like: '/test-site/img/image.jpg'.
-    image: "/website/docs/assets/memorang-logo.png",
-    infoLink: "https://memorangapp.com",
-    pinned: true,
-  },
 ];
 
 const repos = {};
